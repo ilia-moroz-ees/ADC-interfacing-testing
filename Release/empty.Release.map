@@ -1,7 +1,7 @@
 ******************************************************************************
             TI ARM Clang Linker PC v4.0.2                      
 ******************************************************************************
->> Linked Fri May 23 13:00:00 2025
+>> Linked Fri May 23 13:25:56 2025
 
 OUTPUT FILE NAME:   <empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang.out>
 ENTRY POINT SYMBOL: "_vectors"  address: 00000000

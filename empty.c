@@ -72,7 +72,8 @@ void empty_main(void *args) {
   DebugP_log("GPIO44 configured as input\r\n");
 
   while (true) {
-    DebugP_log("ADC Result register value : %d\r\n", readADC(0));
+    DebugP_log("ADC Result IMON value : %d\r\n", adc_to_voltage(readADC(0)));
+    DebugP_log("ADC Result VFB value : %d\r\n", adc_to_voltage(readADC(1)));
     ClockP_sleep(1);
   }
 
@@ -127,6 +128,7 @@ void test_ideal_diodes() {
 
   read_values(&ain0, &ain1, &gpio44_value);
 
+  DebugP_log("Voltage: %fV, Current: %fA, GPIO44: %d", adc_to_voltage(ain1), adc_to_current(ain0), gpio44_value);
   DebugP_log("Step 1: %d",
              check_test_values(ain0, ain1, gpio44_value, 0, 0.45, 1));
 
@@ -136,6 +138,7 @@ void test_ideal_diodes() {
 
   read_values(&ain0, &ain1, &gpio44_value);
 
+  DebugP_log("Voltage: %fV, Current: %fA, GPIO44: %d", adc_to_voltage(ain1), adc_to_current(ain0), gpio44_value);
   DebugP_log("Step 2: %d",
              check_test_values(ain0, ain1, gpio44_value, 2, 0.45, 1));
 
@@ -144,18 +147,22 @@ void test_ideal_diodes() {
 
   read_values(&ain0, &ain1, &gpio44_value);
 
+  DebugP_log("Voltage: %fV, Current: %fA, GPIO44: %d", adc_to_voltage(ain1), adc_to_current(ain0), gpio44_value);
   DebugP_log("Step 3.1: %d",
              check_test_values(ain0, ain1, gpio44_value, 1, 0.45, 1));
   read_values(&ain0, &ain1, &gpio44_value);
 
+  DebugP_log("Voltage: %fV, Current: %fA, GPIO44: %d", adc_to_voltage(ain1), adc_to_current(ain0), gpio44_value);
   DebugP_log("Step 3.2: %d",
              check_test_values(ain0, ain1, gpio44_value, 1.5, 0.45, 1));
   read_values(&ain0, &ain1, &gpio44_value);
 
+  DebugP_log("Voltage: %fV, Current: %fA, GPIO44: %d", adc_to_voltage(ain1), adc_to_current(ain0), gpio44_value);
   DebugP_log("Step 3.3: %d",
              check_test_values(ain0, ain1, gpio44_value, 3, 0.45, 1));
   read_values(&ain0, &ain1, &gpio44_value);
 
+  DebugP_log("Voltage: %fV, Current: %fA, GPIO44: %d", adc_to_voltage(ain1), adc_to_current(ain0), gpio44_value);
   DebugP_log("Step 3.4: %d",
              check_test_values(ain0, ain1, gpio44_value, 5.5, 0.45, 1));
   read_values(&ain0, &ain1, &gpio44_value);
@@ -166,6 +173,7 @@ void test_ideal_diodes() {
 
   read_values(&ain0, &ain1, &gpio44_value);
 
+  DebugP_log("Voltage: %fV, Current: %fA, GPIO44: %d", adc_to_voltage(ain1), adc_to_current(ain0), gpio44_value);
   DebugP_log("Step 4: %d",
              check_test_values(ain0, ain1, gpio44_value, 2, 0.45, 1));
 
@@ -175,6 +183,7 @@ void test_ideal_diodes() {
 
   read_values(&ain0, &ain1, &gpio44_value);
 
+  DebugP_log("Voltage: %fV, Current: %fA, GPIO44: %d", adc_to_voltage(ain1), adc_to_current(ain0), gpio44_value);
   DebugP_log("Step 5: %d",
              check_test_values(ain0, ain1, gpio44_value, 2, 0.22, 1));
 
@@ -184,6 +193,7 @@ void test_ideal_diodes() {
 
   read_values(&ain0, &ain1, &gpio44_value);
 
+  DebugP_log("Voltage: %fV, Current: %fA, GPIO44: %d", adc_to_voltage(ain1), adc_to_current(ain0), gpio44_value);
   DebugP_log("Step 6: %d",
              check_test_values(ain0, ain1, gpio44_value, 0, 0.11, 1));
 
@@ -193,6 +203,7 @@ void test_ideal_diodes() {
 
   read_values(&ain0, &ain1, &gpio44_value);
 
+  DebugP_log("Voltage: %fV, Current: %fA, GPIO44: %d", adc_to_voltage(ain1), adc_to_current(ain0), gpio44_value);
   DebugP_log("Step 7: %d",
              check_test_values(ain0, ain1, gpio44_value, 2, 0.45, 1));
 
@@ -202,6 +213,7 @@ void test_ideal_diodes() {
 
   read_values(&ain0, &ain1, &gpio44_value);
 
+  DebugP_log("Voltage: %fV, Current: %fA, GPIO44: %d", adc_to_voltage(ain1), adc_to_current(ain0), gpio44_value);
   // AIN0 could be oscillating
   DebugP_log("Step 8: %d",
              check_test_values(ain0, ain1, gpio44_value, 0, 0.68, 0));
@@ -212,6 +224,7 @@ void test_ideal_diodes() {
 
   read_values(&ain0, &ain1, &gpio44_value);
 
+  DebugP_log("Voltage: %fV, Current: %fA, GPIO44: %d", adc_to_voltage(ain1), adc_to_current(ain0), gpio44_value);
   DebugP_log("Step 9: %d",
              check_test_values(ain0, ain1, gpio44_value, 2, 0.45, 1));
 
@@ -221,6 +234,7 @@ void test_ideal_diodes() {
 
   read_values(&ain0, &ain1, &gpio44_value);
 
+  DebugP_log("Voltage: %fV, Current: %fA, GPIO44: %d", adc_to_voltage(ain1), adc_to_current(ain0), gpio44_value);
   DebugP_log("Step 10: %d",
              check_test_values(ain0, ain1, gpio44_value, 0, 0.45, 0));
 
@@ -230,6 +244,7 @@ void test_ideal_diodes() {
 
   read_values(&ain0, &ain1, &gpio44_value);
 
+  DebugP_log("Voltage: %fV, Current: %fA, GPIO44: %d", adc_to_voltage(ain1), adc_to_current(ain0), gpio44_value);
   DebugP_log("Step 11: %d",
              check_test_values(ain0, ain1, gpio44_value, 2, 0.45, 1));
 

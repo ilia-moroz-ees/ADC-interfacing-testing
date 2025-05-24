@@ -1,35 +1,35 @@
 [C:/Users/carim/workspace_ccstheia/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang/Release/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang.rprc_tmp] Parsing file ...
 Found section 0 with adddress 0x00000000, size 0x00000040 bytes
-Found section 1 with adddress 0x7004ce00, size 0x00006fc0 bytes
-Found section 2 with adddress 0x70053dc0, size 0x00000b58 bytes
-Found section 3 with adddress 0x70054918, size 0x00000978 bytes
-Found section 4 with adddress 0x70055290, size 0x00000430 bytes
-Found section 5 with adddress 0x700556c0, size 0x00000218 bytes
-Found section 6 with adddress 0x700558d8, size 0x00000190 bytes
-Found section 7 with adddress 0x70055a68, size 0x00000008 bytes
-Found section 8 with adddress 0x70055a70, size 0x000003d8 bytes
+Found section 1 with adddress 0x7004ce00, size 0x00007040 bytes
+Found section 2 with adddress 0x70053e40, size 0x00000b70 bytes
+Found section 3 with adddress 0x700549b0, size 0x00000978 bytes
+Found section 4 with adddress 0x70055328, size 0x00000430 bytes
+Found section 5 with adddress 0x70055758, size 0x00000218 bytes
+Found section 6 with adddress 0x70055970, size 0x00000190 bytes
+Found section 7 with adddress 0x70055b00, size 0x00000008 bytes
+Found section 8 with adddress 0x70055b08, size 0x000003d8 bytes
 [C:/Users/carim/workspace_ccstheia/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang/Release/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang.rprc_tmp] Found 9 sections. 9 are non-XIP sections, 0 are XIP sections, NON-XIP entryPoint = 0x00000000
-Merging section @ 0x70053dc0 of size 0x00000b58, with section @ 0x7004ce00 of size 0x00006fc0
-Merging section @ 0x70054918 of size 0x00000978, with section @ 0x7004ce00 of size 0x00007b18
-Merging section @ 0x70055290 of size 0x00000430, with section @ 0x7004ce00 of size 0x00008490
-Merging section @ 0x700556c0 of size 0x00000218, with section @ 0x7004ce00 of size 0x000088c0
-Merging section @ 0x700558d8 of size 0x00000190, with section @ 0x7004ce00 of size 0x00008ad8
-Merging section @ 0x70055a68 of size 0x00000008, with section @ 0x7004ce00 of size 0x00008c68
-Merging section @ 0x70055a70 of size 0x000003d8, with section @ 0x7004ce00 of size 0x00008c70
+Merging section @ 0x70053e40 of size 0x00000b70, with section @ 0x7004ce00 of size 0x00007040
+Merging section @ 0x700549b0 of size 0x00000978, with section @ 0x7004ce00 of size 0x00007bb0
+Merging section @ 0x70055328 of size 0x00000430, with section @ 0x7004ce00 of size 0x00008528
+Merging section @ 0x70055758 of size 0x00000218, with section @ 0x7004ce00 of size 0x00008958
+Merging section @ 0x70055970 of size 0x00000190, with section @ 0x7004ce00 of size 0x00008b70
+Merging section @ 0x70055b00 of size 0x00000008, with section @ 0x7004ce00 of size 0x00008d00
+Merging section @ 0x70055b08 of size 0x000003d8, with section @ 0x7004ce00 of size 0x00008d08
 Writing section header  #0, adddress 0x00000000, size 0x00000040 bytes to file [C:/Users/carim/workspace_ccstheia/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang/Release/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
 Writing section data with adddress 0x00000000, size 0x00000040 bytes to file [C:/Users/carim/workspace_ccstheia/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang/Release/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
-Writing section header  #1, adddress 0x7004ce00, size 0x00009048 bytes to file [C:/Users/carim/workspace_ccstheia/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang/Release/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
-Writing section data with adddress 0x7004ce00, size 0x00006fc0 bytes to file [C:/Users/carim/workspace_ccstheia/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang/Release/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
-Writing section data with adddress 0x70053dc0, size 0x00000b58 bytes to file [C:/Users/carim/workspace_ccstheia/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang/Release/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
-Writing section data with adddress 0x70054918, size 0x00000978 bytes to file [C:/Users/carim/workspace_ccstheia/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang/Release/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
-Writing section data with adddress 0x70055290, size 0x00000430 bytes to file [C:/Users/carim/workspace_ccstheia/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang/Release/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
-Writing section data with adddress 0x700556c0, size 0x00000218 bytes to file [C:/Users/carim/workspace_ccstheia/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang/Release/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
-Writing section data with adddress 0x700558d8, size 0x00000190 bytes to file [C:/Users/carim/workspace_ccstheia/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang/Release/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
-Writing section data with adddress 0x70055a68, size 0x00000008 bytes to file [C:/Users/carim/workspace_ccstheia/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang/Release/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
-Writing section data with adddress 0x70055a70, size 0x000003d8 bytes to file [C:/Users/carim/workspace_ccstheia/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang/Release/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
+Writing section header  #1, adddress 0x7004ce00, size 0x000090e0 bytes to file [C:/Users/carim/workspace_ccstheia/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang/Release/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
+Writing section data with adddress 0x7004ce00, size 0x00007040 bytes to file [C:/Users/carim/workspace_ccstheia/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang/Release/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
+Writing section data with adddress 0x70053e40, size 0x00000b70 bytes to file [C:/Users/carim/workspace_ccstheia/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang/Release/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
+Writing section data with adddress 0x700549b0, size 0x00000978 bytes to file [C:/Users/carim/workspace_ccstheia/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang/Release/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
+Writing section data with adddress 0x70055328, size 0x00000430 bytes to file [C:/Users/carim/workspace_ccstheia/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang/Release/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
+Writing section data with adddress 0x70055758, size 0x00000218 bytes to file [C:/Users/carim/workspace_ccstheia/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang/Release/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
+Writing section data with adddress 0x70055970, size 0x00000190 bytes to file [C:/Users/carim/workspace_ccstheia/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang/Release/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
+Writing section data with adddress 0x70055b00, size 0x00000008 bytes to file [C:/Users/carim/workspace_ccstheia/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang/Release/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
+Writing section data with adddress 0x70055b08, size 0x000003d8 bytes to file [C:/Users/carim/workspace_ccstheia/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang/Release/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
 [C:/Users/carim/workspace_ccstheia/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang/Release/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang.rprc] Parsing file ...
 Found section 0 with adddress 0x00000000, size 0x00000040 bytes
-Found section 1 with adddress 0x7004ce00, size 0x00009048 bytes
+Found section 1 with adddress 0x7004ce00, size 0x000090e0 bytes
 [C:/Users/carim/workspace_ccstheia/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang/Release/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang.rprc] Found 2 sections. 2 are non-XIP sections, 0 are XIP sections, NON-XIP entryPoint = 0x00000000
 [C:/Users/carim/workspace_ccstheia/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang/Release/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang.rprc_xip] Parsing file ...
 [C:/Users/carim/workspace_ccstheia/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang/Release/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang.rprc_xip] Found 0 sections. 0 are non-XIP sections, 0 are XIP sections, NON-XIP entryPoint = 0x00000000

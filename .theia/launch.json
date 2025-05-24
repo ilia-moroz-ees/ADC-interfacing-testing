@@ -1,0 +1,14 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang",
+            "type": "ccs-debug",
+            "request": "launch",
+            "projectInfo": {
+                "name": "empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang",
+                "resourceId": "/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang"
+            }
+        }
+    ]
+}

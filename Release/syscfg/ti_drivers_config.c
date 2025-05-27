@@ -111,6 +111,17 @@ void GPIO_init()
     baseAddr = (uint32_t) AddrTranslateP_getLocalAddr(GPIO44_BASE_ADDR);
 
     GPIO_setDirMode(baseAddr, GPIO44_PIN, GPIO44_DIR);
+    /* Instance 2 */
+    /* Get address after translation translate */
+    baseAddr = (uint32_t) AddrTranslateP_getLocalAddr(GPIO45_BASE_ADDR);
+    GPIO_pinWriteLow(baseAddr, GPIO45_PIN);
+
+    GPIO_setDirMode(baseAddr, GPIO45_PIN, GPIO45_DIR);
+    /* Instance 3 */
+    /* Get address after translation translate */
+    baseAddr = (uint32_t) AddrTranslateP_getLocalAddr(GPIO46_BASE_ADDR);
+
+    GPIO_setDirMode(baseAddr, GPIO46_PIN, GPIO46_DIR);
 }
 
 
@@ -119,6 +130,64 @@ void GPIO_deinit()
 {
 
 }
+
+/*
+ * MCSPI
+ */
+#include "ti_drivers_open_close.h"
+
+uint32_t gMcspiNumCh[1] =
+{
+    SPI0_NUM_CH,
+};
+
+/* MCSPI atrributes */
+static MCSPI_Attrs gMcspiAttrs[CONFIG_MCSPI_NUM_INSTANCES] =
+{
+    {
+        .baseAddr           = CSL_MCSPI0_U_BASE,
+        .inputClkFreq       = 50000000U,
+        .intrNum            = CSLR_R5FSS0_CORE0_INTR_MCSPI0_INTR,
+        .operMode           = MCSPI_OPER_MODE_INTERRUPT,
+        .intrPriority       = 4U,
+        .chMode             = MCSPI_CH_MODE_SINGLE,
+        .pinMode            = MCSPI_PINMODE_4PIN,
+        .initDelay          = MCSPI_INITDLY_0,
+        .multiWordAccess    = FALSE,
+    },
+};
+/* MCSPI objects - initialized by the driver */
+static MCSPI_Object gMcspiObjects[CONFIG_MCSPI_NUM_INSTANCES];
+/* MCSPI driver configuration */
+MCSPI_Config gMcspiConfig[CONFIG_MCSPI_NUM_INSTANCES] =
+{
+    {
+        &gMcspiAttrs[SPI0],
+        &gMcspiObjects[SPI0],
+    },
+};
+
+uint32_t gMcspiConfigNum = CONFIG_MCSPI_NUM_INSTANCES;
+
+#include <drivers/edma.h>
+#include <drivers/mcspi/v0/lld/dma/mcspi_dma.h>
+#include <drivers/mcspi/v0/lld/dma/edma/mcspi_dma_edma.h>
+MCSPI_DmaConfig gMcspiDmaConfig =
+{
+    .fxns        = NULL,
+    .mcspiDmaArgs = (void *)NULL,
+};
+
+McspiDma_EdmaArgs gMcspiEdmaArgs =
+{
+    .drvHandle        = NULL,
+};
+
+MCSPI_DmaHandle gMcspiDmaHandle[] =
+{
+};
+
+uint32_t gMcspiDmaConfigNum = CONFIG_MCSPI_NUM_DMA_INSTANCES;
 
 /*
  * UART
@@ -181,6 +250,7 @@ void System_init(void)
 
     EDMA_init();
     GPIO_init();
+    MCSPI_init();
     Drivers_uartInit();
 }
 
@@ -188,6 +258,7 @@ void System_deinit(void)
 {
     EDMA_deinit();
     GPIO_deinit();
+    MCSPI_deinit();
     UART_deinit();
         PowerClock_deinit();
 

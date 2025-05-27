@@ -1,35 +1,3 @@
-/*
- *  Copyright (C) 2021 Texas Instruments Incorporated
- *
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions
- *  are met:
- *
- *    Redistributions of source code must retain the above copyright
- *    notice, this list of conditions and the following disclaimer.
- *
- *    Redistributions in binary form must reproduce the above copyright
- *    notice, this list of conditions and the following disclaimer in the
- *    documentation and/or other materials provided with the
- *    distribution.
- *
- *    Neither the name of Texas Instruments Incorporated nor the names of
- *    its contributors may be used to endorse or promote products derived
- *    from this software without specific prior written permission.
- *
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
- *  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
- *  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
- *  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
- *  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
- *  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
- *  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- *  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
- *  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
-
 #include "ti_board_open_close.h"
 #include "ti_drivers_config.h"
 #include "ti_drivers_open_close.h"
@@ -41,22 +9,22 @@
 #include <math.h>
 #include <stdio.h>
 
-uint16_t readADC(uint8_t adc_number);
-float adc_to_voltage(uint16_t raw_adc);
-float adc_to_current(uint16_t raw_adc);
-void read_values(float *ain0, float *ain1, bool *gpio44_value);
+static uint16_t readADC(uint8_t adc_number);
+static float adc_to_voltage(uint16_t raw_adc);
+static float adc_to_current(uint16_t raw_adc);
+static void read_values(float *ain0, float *ain1, bool *gpio44_value);
 
-void test_ideal_diodes();
-bool check_test_values(float ain0, float ain1, bool gpio44_value,
+static void test_ideal_diodes();
+static bool check_test_values(float ain0, float ain1, bool gpio44_value,
                        float ain0_expected_value, float ain1_expected_value,
                        bool gpio44_expected_value);
 
-const float VREF = 3.3f;            // Reference ADC Voltage
-const float ADC_RESOLUTION = 4095;    // 12 bit resolution
-const float CURRENT_SCALE = 0.432f; // Voltage to Current Conversion factor
-const float DISCREPANCY = 0.1;
+static const float VREF = 3.3f;            // Reference ADC Voltage
+static const float ADC_RESOLUTION = 4095;    // 12 bit resolution
+static const float CURRENT_SCALE = 0.432f; // Voltage to Current Conversion factor
+static const float DISCREPANCY = 0.1;
 
-void empty_main(void *args) {
+void ideal_diode_test(void *args) {
 
   Drivers_open();
   Board_driversOpen();
@@ -139,6 +107,8 @@ void test_ideal_diodes() { //Such a terrible code OMG, gotta restructure it
   // Step 2
   DebugP_log("Starting test Step 2\r\n");
   GPIO_pinWriteHigh(GPIO43_BASE_ADDR, GPIO43_PIN);
+
+  ClockP_usleep(1000 * 200); // Wait 200ms to enable the board
 
   read_values(&ain0, &ain1, &gpio44_value);
 

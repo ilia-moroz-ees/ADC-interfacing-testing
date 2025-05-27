@@ -75,6 +75,32 @@ void Drivers_edmaOpen(void);
 void Drivers_edmaClose(void);
 
 /*
+ * MCSPI
+ */
+#include <drivers/mcspi.h>
+#include <drivers/edma.h>
+#include <drivers/mcspi/v0/lld/dma/mcspi_dma.h>
+#include <drivers/mcspi/v0/lld/dma/edma/mcspi_dma_edma.h>
+
+/* MCSPI Driver handles */
+extern MCSPI_Handle gMcspiHandle[CONFIG_MCSPI_NUM_INSTANCES];
+/*
+ * MCSPI Driver Advance Parameters - to be used only when Driver_open() and
+ * Driver_close() is not used by the application
+ */
+/* MCSPI Driver Open Parameters */
+extern MCSPI_OpenParams gMcspiOpenParams[CONFIG_MCSPI_NUM_INSTANCES];
+/* MCSPI Channel Macros */
+#define SPI0_NUM_CH (1U)
+/* MCSPI Driver Channel Configurations */
+extern MCSPI_ChConfig gSpi0ChCfg[SPI0_NUM_CH];
+/* MCSPI Driver open/close - can be used by application when Driver_open() and
+ * Driver_close() is not used directly and app wants to control the various driver
+ * open/close sequences */
+void Drivers_mcspiOpen(void);
+void Drivers_mcspiClose(void);
+
+/*
  * UART
  */
 #include <drivers/uart.h>

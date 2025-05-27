@@ -2,11 +2,6 @@
    {
       "directory" : "C:/Users/carim/workspace_ccstheia/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang/Release",
       "command"   : "clang++ -I\"C:/ti/ccs2011/ccs/tools/compiler/ti-cgt-armllvm_4.0.2.LTS/include/c\" -I\"C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source\" -DSOC_AM263PX -isystem\"C:/ti/ccs2011/ccs/tools/compiler/ti-cgt-armllvm_4.0.2.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"C:/ti/ccs2011/ccs/tools/compiler/ti-cgt-armllvm_4.0.2.LTS/include/c++/v1\" -isystem\"C:/ti/ccs2011/ccs/tools/compiler/ti-cgt-armllvm_4.0.2.LTS/lib/clang/18/include\" -isystem\"C:/ti/ccs2011/ccs/tools/compiler/ti-cgt-armllvm_4.0.2.LTS/include/c\" -I\"C:/Users/carim/workspace_ccstheia/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang/Release/syscfg\" -xc",
-      "file"      : "C:/Users/carim/workspace_ccstheia/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang/empty.c"
-   },
-   {
-      "directory" : "C:/Users/carim/workspace_ccstheia/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang/Release",
-      "command"   : "clang++ -I\"C:/ti/ccs2011/ccs/tools/compiler/ti-cgt-armllvm_4.0.2.LTS/include/c\" -I\"C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source\" -DSOC_AM263PX -isystem\"C:/ti/ccs2011/ccs/tools/compiler/ti-cgt-armllvm_4.0.2.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"C:/ti/ccs2011/ccs/tools/compiler/ti-cgt-armllvm_4.0.2.LTS/include/c++/v1\" -isystem\"C:/ti/ccs2011/ccs/tools/compiler/ti-cgt-armllvm_4.0.2.LTS/lib/clang/18/include\" -isystem\"C:/ti/ccs2011/ccs/tools/compiler/ti-cgt-armllvm_4.0.2.LTS/include/c\" -I\"C:/Users/carim/workspace_ccstheia/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang/Release/syscfg\" -xc",
       "file"      : "C:/Users/carim/workspace_ccstheia/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang/main.c"
    },
    {
@@ -63,5 +58,15 @@
       "directory" : "C:/Users/carim/workspace_ccstheia/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang/Release",
       "command"   : "clang++ -I\"C:/ti/ccs2011/ccs/tools/compiler/ti-cgt-armllvm_4.0.2.LTS/include/c\" -I\"C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source\" -DSOC_AM263PX -isystem\"C:/ti/ccs2011/ccs/tools/compiler/ti-cgt-armllvm_4.0.2.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"C:/ti/ccs2011/ccs/tools/compiler/ti-cgt-armllvm_4.0.2.LTS/include/c++/v1\" -isystem\"C:/ti/ccs2011/ccs/tools/compiler/ti-cgt-armllvm_4.0.2.LTS/lib/clang/18/include\" -isystem\"C:/ti/ccs2011/ccs/tools/compiler/ti-cgt-armllvm_4.0.2.LTS/include/c\" -I\"C:/Users/carim/workspace_ccstheia/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang/Release/syscfg\" -xc",
       "file"      : "C:/Users/carim/workspace_ccstheia/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang/Release/syscfg/ti_power_clock_config.c"
+   },
+   {
+      "directory" : "C:/Users/carim/workspace_ccstheia/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang/Release",
+      "command"   : "clang++ -I\"C:/ti/ccs2011/ccs/tools/compiler/ti-cgt-armllvm_4.0.2.LTS/include/c\" -I\"C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source\" -DSOC_AM263PX -isystem\"C:/ti/ccs2011/ccs/tools/compiler/ti-cgt-armllvm_4.0.2.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"C:/ti/ccs2011/ccs/tools/compiler/ti-cgt-armllvm_4.0.2.LTS/include/c++/v1\" -isystem\"C:/ti/ccs2011/ccs/tools/compiler/ti-cgt-armllvm_4.0.2.LTS/lib/clang/18/include\" -isystem\"C:/ti/ccs2011/ccs/tools/compiler/ti-cgt-armllvm_4.0.2.LTS/include/c\" -I\"C:/Users/carim/workspace_ccstheia/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang/Release/syscfg\" -xc",
+      "file"      : "C:/Users/carim/workspace_ccstheia/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang/high_side_switches_test.c"
+   },
+   {
+      "directory" : "C:/Users/carim/workspace_ccstheia/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang/Release",
+      "command"   : "clang++ -I\"C:/ti/ccs2011/ccs/tools/compiler/ti-cgt-armllvm_4.0.2.LTS/include/c\" -I\"C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source\" -DSOC_AM263PX -isystem\"C:/ti/ccs2011/ccs/tools/compiler/ti-cgt-armllvm_4.0.2.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"C:/ti/ccs2011/ccs/tools/compiler/ti-cgt-armllvm_4.0.2.LTS/include/c++/v1\" -isystem\"C:/ti/ccs2011/ccs/tools/compiler/ti-cgt-armllvm_4.0.2.LTS/lib/clang/18/include\" -isystem\"C:/ti/ccs2011/ccs/tools/compiler/ti-cgt-armllvm_4.0.2.LTS/include/c\" -I\"C:/Users/carim/workspace_ccstheia/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang/Release/syscfg\" -xc",
+      "file"      : "C:/Users/carim/workspace_ccstheia/empty_am263px-cc_r5fss0-0_nortos_ti-arm-clang/ideal_diode_test.c"
    }
 ]

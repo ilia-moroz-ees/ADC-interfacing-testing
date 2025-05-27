@@ -1,4 +1,3 @@
-"./empty.o"
 "./syscfg/ti_dpl_config.o"
 "./syscfg/ti_drivers_config.o"
 "./syscfg/ti_drivers_open_close.o"
@@ -10,6 +9,8 @@
 "./syscfg/ti_enet_open_close.o"
 "./syscfg/ti_enet_soc.o"
 "./syscfg/ti_enet_lwipif.o"
+"./high_side_switches_test.o"
+"./ideal_diode_test.o"
 "./main.o"
 -l"syscfg/linker.cmd"
 -lnortos.am263px.r5f.ti-arm-clang.release.lib

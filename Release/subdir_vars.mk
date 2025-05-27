@@ -9,7 +9,6 @@ SYSCFG_SRCS += \
 ../example.syscfg 
 
 C_SRCS += \
-../empty.c \
 ./syscfg/ti_dpl_config.c \
 ./syscfg/ti_drivers_config.c \
 ./syscfg/ti_drivers_open_close.c \
@@ -21,6 +20,8 @@ C_SRCS += \
 ./syscfg/ti_enet_open_close.c \
 ./syscfg/ti_enet_soc.c \
 ./syscfg/ti_enet_lwipif.c \
+../high_side_switches_test.c \
+../ideal_diode_test.c \
 ../main.c 
 
 GEN_CMDS += \
@@ -44,7 +45,6 @@ GEN_MISC_DIRS += \
 ./syscfg 
 
 C_DEPS += \
-./empty.d \
 ./syscfg/ti_dpl_config.d \
 ./syscfg/ti_drivers_config.d \
 ./syscfg/ti_drivers_open_close.d \
@@ -56,10 +56,11 @@ C_DEPS += \
 ./syscfg/ti_enet_open_close.d \
 ./syscfg/ti_enet_soc.d \
 ./syscfg/ti_enet_lwipif.d \
+./high_side_switches_test.d \
+./ideal_diode_test.d \
 ./main.d 
 
 OBJS += \
-./empty.o \
 ./syscfg/ti_dpl_config.o \
 ./syscfg/ti_drivers_config.o \
 ./syscfg/ti_drivers_open_close.o \
@@ -71,6 +72,8 @@ OBJS += \
 ./syscfg/ti_enet_open_close.o \
 ./syscfg/ti_enet_soc.o \
 ./syscfg/ti_enet_lwipif.o \
+./high_side_switches_test.o \
+./ideal_diode_test.o \
 ./main.o 
 
 GEN_MISC_FILES += \
@@ -89,7 +92,6 @@ GEN_MISC_DIRS__QUOTED += \
 "syscfg" 
 
 OBJS__QUOTED += \
-"empty.o" \
 "syscfg\ti_dpl_config.o" \
 "syscfg\ti_drivers_config.o" \
 "syscfg\ti_drivers_open_close.o" \
@@ -101,6 +103,8 @@ OBJS__QUOTED += \
 "syscfg\ti_enet_open_close.o" \
 "syscfg\ti_enet_soc.o" \
 "syscfg\ti_enet_lwipif.o" \
+"high_side_switches_test.o" \
+"ideal_diode_test.o" \
 "main.o" 
 
 GEN_MISC_FILES__QUOTED += \
@@ -116,7 +120,6 @@ GEN_MISC_FILES__QUOTED += \
 "syscfg\linker_defines.h" 
 
 C_DEPS__QUOTED += \
-"empty.d" \
 "syscfg\ti_dpl_config.d" \
 "syscfg\ti_drivers_config.d" \
 "syscfg\ti_drivers_open_close.d" \
@@ -128,6 +131,8 @@ C_DEPS__QUOTED += \
 "syscfg\ti_enet_open_close.d" \
 "syscfg\ti_enet_soc.d" \
 "syscfg\ti_enet_lwipif.d" \
+"high_side_switches_test.d" \
+"ideal_diode_test.d" \
 "main.d" 
 
 GEN_FILES__QUOTED += \
@@ -144,8 +149,10 @@ GEN_FILES__QUOTED += \
 "syscfg\ti_enet_lwipif.c" \
 "syscfg\linker.cmd" 
 
+SYSCFG_SRCS__QUOTED += \
+"../example.syscfg" 
+
 C_SRCS__QUOTED += \
-"../empty.c" \
 "./syscfg/ti_dpl_config.c" \
 "./syscfg/ti_drivers_config.c" \
 "./syscfg/ti_drivers_open_close.c" \
@@ -157,9 +164,8 @@ C_SRCS__QUOTED += \
 "./syscfg/ti_enet_open_close.c" \
 "./syscfg/ti_enet_soc.c" \
 "./syscfg/ti_enet_lwipif.c" \
+"../high_side_switches_test.c" \
+"../ideal_diode_test.c" \
 "../main.c" 
-
-SYSCFG_SRCS__QUOTED += \
-"../example.syscfg" 
 
 

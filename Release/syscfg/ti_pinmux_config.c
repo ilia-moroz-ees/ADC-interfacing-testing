@@ -47,6 +47,42 @@ static Pinmux_PerCfg_t gPinMuxMainDomainCfg[] = {
         PIN_EPWM0_B,
         ( PIN_MODE(7) | PIN_PULL_UP | PIN_SLEW_RATE_LOW | PIN_GPIO_R5SS0_0 )
     },
+                /* GPIO45 -> EPWM1_A (D3) */
+    {
+        PIN_EPWM1_A,
+        ( PIN_MODE(7) | PIN_PULL_DISABLE | PIN_SLEW_RATE_LOW | PIN_GPIO_R5SS0_0 )
+    },
+                /* GPIO46 -> EPWM1_B (D2) */
+    {
+        PIN_EPWM1_B,
+        ( PIN_MODE(7) | PIN_PULL_DISABLE | PIN_SLEW_RATE_LOW | PIN_GPIO_R5SS0_0 )
+    },
+
+            /* SPI0 pin config */
+    /* SPI0_CLK -> SPI0_CLK (A11) */
+    {
+        PIN_SPI0_CLK,
+        ( PIN_MODE(0) | PIN_PULL_DISABLE | PIN_SLEW_RATE_LOW )
+    },
+    /* SPI0 pin config */
+    /* SPI0_D0 -> SPI0_D0 (C10) */
+    {
+        PIN_SPI0_D0,
+        ( PIN_MODE(0) | PIN_PULL_DISABLE | PIN_SLEW_RATE_LOW )
+    },
+    /* SPI0 pin config */
+    /* SPI0_D1 -> SPI0_D1 (B11) */
+    {
+        PIN_SPI0_D1,
+        ( PIN_MODE(0) | PIN_PULL_DISABLE | PIN_SLEW_RATE_LOW )
+    },
+
+            /* SPI0_CS0 pin config */
+    /* SPI0_CS0 -> SPI0_CS0 (C11) */
+    {
+        PIN_SPI0_CS0,
+        ( PIN_MODE(0) | PIN_PULL_DISABLE )
+    },
 
             /* UART0 pin config */
     /* UART0_RXD -> UART0_RXD (A7) */

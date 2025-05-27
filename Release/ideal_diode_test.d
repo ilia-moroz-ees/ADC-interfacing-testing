@@ -1,10 +1,9 @@
 # FIXED
 
-syscfg/ti_dpl_config.o: syscfg/ti_dpl_config.c \
- C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/soc.h \
- C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/soc/am263px/soc.h \
- C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/kernel/dpl/SystemP.h \
- C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/kernel/dpl/DebugP.h \
+ideal_diode_test.o: ../ideal_diode_test.c \
+ syscfg/ti_board_open_close.h \
+ syscfg/ti_board_config.h \
+ syscfg/ti_drivers_config.h \
  C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/hw_include/cslr_soc.h \
  C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/hw_include/am263px/cslr_soc.h \
  C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/hw_include/am263px/cslr_controlss_ctrl.h \
@@ -71,16 +70,14 @@ syscfg/ti_dpl_config.o: syscfg/ti_dpl_config.c \
  C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/hw_include/am263px/cslr_xbar_integration_data.h \
  C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/hw_include/am263px/soc_config.h \
  C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/hw_include/am263px/cslr_soc_hsm_baseaddress.h \
- C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/soc/am263px/soc_xbar.h \
  C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/hw_include/hw_types.h \
- C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/soc/am263px/soc_rcm.h \
- C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/kernel/dpl/AddrTranslateP.h \
  syscfg/ti_dpl_config.h \
  C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/kernel/dpl/HwiP.h \
+ C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/kernel/dpl/SystemP.h \
+ C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/kernel/dpl/DebugP.h \
  C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/kernel/dpl/ClockP.h \
  C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/kernel/dpl/CacheP.h \
  C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/kernel/dpl/MpuP_armv7.h \
- syscfg/ti_drivers_config.h \
  C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/adc.h \
  C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/hw_include/soc_config.h \
  C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/adc/v2/adc.h \
@@ -89,6 +86,10 @@ syscfg/ti_dpl_config.o: syscfg/ti_dpl_config.c \
  C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/adc/v2/cslr_adc_result.h \
  C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/adc/v2/cslr_adc_safety.h \
  C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/adc/v2/cslr_adc_safety_aggr.h \
+ C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/soc.h \
+ C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/soc/am263px/soc.h \
+ C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/soc/am263px/soc_xbar.h \
+ C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/soc/am263px/soc_rcm.h \
  C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/edma.h \
  C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/edma/v0/edma.h \
  C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/hw_include/cslr_edma.h \
@@ -98,6 +99,7 @@ syscfg/ti_dpl_config.o: syscfg/ti_dpl_config.c \
  C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/gpio/v0/gpio.h \
  C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/hw_include/cslr_gpio.h \
  C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/gpio/v0/cslr_gpio.h \
+ C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/kernel/dpl/AddrTranslateP.h \
  C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/mcspi.h \
  C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/mcspi/v0/mcspi.h \
  C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/kernel/dpl/SemaphoreP.h \
@@ -110,11 +112,13 @@ syscfg/ti_dpl_config.o: syscfg/ti_dpl_config.c \
  C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/hw_include/cslr_uart.h \
  C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/uart/v0/hw_uart.h \
  C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/uart/v0/lld/uart_lld.h \
- C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/kernel/dpl/CycleCounterP.h
-C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/soc.h:
-C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/soc/am263px/soc.h:
-C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/kernel/dpl/SystemP.h:
-C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/kernel/dpl/DebugP.h:
+ C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/kernel/dpl/CycleCounterP.h \
+ syscfg/ti_drivers_open_close.h \
+ C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/mcspi/v0/lld/dma/mcspi_dma.h \
+ C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/mcspi/v0/lld/dma/edma/mcspi_dma_edma.h
+syscfg/ti_board_open_close.h:
+syscfg/ti_board_config.h:
+syscfg/ti_drivers_config.h:
 C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/hw_include/cslr_soc.h:
 C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/hw_include/am263px/cslr_soc.h:
 C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/hw_include/am263px/cslr_controlss_ctrl.h:
@@ -181,16 +185,14 @@ C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/hw_include/am263px/cslr_to
 C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/hw_include/am263px/cslr_xbar_integration_data.h:
 C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/hw_include/am263px/soc_config.h:
 C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/hw_include/am263px/cslr_soc_hsm_baseaddress.h:
-C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/soc/am263px/soc_xbar.h:
 C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/hw_include/hw_types.h:
-C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/soc/am263px/soc_rcm.h:
-C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/kernel/dpl/AddrTranslateP.h:
 syscfg/ti_dpl_config.h:
 C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/kernel/dpl/HwiP.h:
+C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/kernel/dpl/SystemP.h:
+C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/kernel/dpl/DebugP.h:
 C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/kernel/dpl/ClockP.h:
 C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/kernel/dpl/CacheP.h:
 C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/kernel/dpl/MpuP_armv7.h:
-syscfg/ti_drivers_config.h:
 C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/adc.h:
 C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/hw_include/soc_config.h:
 C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/adc/v2/adc.h:
@@ -199,6 +201,10 @@ C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/adc/v2/cslr_adc.h:
 C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/adc/v2/cslr_adc_result.h:
 C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/adc/v2/cslr_adc_safety.h:
 C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/adc/v2/cslr_adc_safety_aggr.h:
+C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/soc.h:
+C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/soc/am263px/soc.h:
+C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/soc/am263px/soc_xbar.h:
+C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/soc/am263px/soc_rcm.h:
 C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/edma.h:
 C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/edma/v0/edma.h:
 C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/hw_include/cslr_edma.h:
@@ -208,6 +214,7 @@ C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/gpio.h:
 C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/gpio/v0/gpio.h:
 C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/hw_include/cslr_gpio.h:
 C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/gpio/v0/cslr_gpio.h:
+C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/kernel/dpl/AddrTranslateP.h:
 C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/mcspi.h:
 C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/mcspi/v0/mcspi.h:
 C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/kernel/dpl/SemaphoreP.h:
@@ -221,3 +228,6 @@ C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/hw_include/cslr_uart.h:
 C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/uart/v0/hw_uart.h:
 C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/uart/v0/lld/uart_lld.h:
 C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/kernel/dpl/CycleCounterP.h:
+syscfg/ti_drivers_open_close.h:
+C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/mcspi/v0/lld/dma/mcspi_dma.h:
+C:/ti/mcu_plus_sdk_am263px_10_01_00_34/source/drivers/mcspi/v0/lld/dma/edma/mcspi_dma_edma.h:

@@ -16,6 +16,10 @@ const edma1           = edma.addInstance();
 const gpio            = scripting.addModule("/drivers/gpio/gpio", {}, false);
 const gpio1           = gpio.addInstance();
 const gpio2           = gpio.addInstance();
+const gpio3           = gpio.addInstance();
+const gpio4           = gpio.addInstance();
+const mcspi           = scripting.addModule("/drivers/mcspi/mcspi", {}, false);
+const mcspi1          = mcspi.addInstance();
 const debug_log       = scripting.addModule("/kernel/dpl/debug_log");
 const dpl_cfg         = scripting.addModule("/kernel/dpl/dpl_cfg");
 const mpu_armv7       = scripting.addModule("/kernel/dpl/mpu_armv7", {}, false);
@@ -58,12 +62,6 @@ adc1.interrupt2SOCSource = "ADC_SOC_NUMBER1";
 adc1.$name               = "ADC1";
 adc1.ADC.$assign         = "ADC1";
 
-edma1.$name                 = "CONFIG_EDMA0";
-edma1.edmaRmDmaCh[0].$name  = "CONFIG_EDMA_RM0";
-edma1.edmaRmQdmaCh[0].$name = "CONFIG_EDMA_RM1";
-edma1.edmaRmTcc[0].$name    = "CONFIG_EDMA_RM2";
-edma1.edmaRmParam[0].$name  = "CONFIG_EDMA_RM3";
-
 gpio1.pinDir         = "OUTPUT";
 gpio1.$name          = "GPIO43";
 gpio1.GPIO_n.$assign = "EPWM0_A";
@@ -71,6 +69,24 @@ gpio1.GPIO_n.$assign = "EPWM0_A";
 gpio2.pu_pd          = "pu";
 gpio2.$name          = "GPIO44";
 gpio2.GPIO_n.$assign = "EPWM0_B";
+
+gpio3.$name          = "GPIO45";
+gpio3.pinDir         = "OUTPUT";
+gpio3.GPIO_n.$assign = "EPWM1_A";
+
+gpio4.$name          = "GPIO46";
+gpio4.GPIO_n.$assign = "EPWM1_B";
+
+mcspi1.$name                 = "SPI0";
+mcspi1.mcspiChannel[0].$name = "CONFIG_MCSPI_CH0";
+mcspi1.child.$name           = "drivers_mcspi_v1_mcspi_v1_template0";
+
+edma1.$name                 = "CONFIG_EDMA0";
+mcspi1.edmaDriver           = edma1;
+edma1.edmaRmDmaCh[0].$name  = "CONFIG_EDMA_RM0";
+edma1.edmaRmQdmaCh[0].$name = "CONFIG_EDMA_RM1";
+edma1.edmaRmTcc[0].$name    = "CONFIG_EDMA_RM2";
+edma1.edmaRmParam[0].$name  = "CONFIG_EDMA_RM3";
 
 const soc_ctrl_adc    = scripting.addModule("/drivers/soc_ctrl/v0/subModules/soc_ctrl_adc", {}, false);
 const soc_ctrl_adc1   = soc_ctrl_adc.addInstance({}, false);
@@ -327,9 +343,14 @@ section12.output_section[0].alignment = 0;
  * version of the tool will not impact the pinmux you originally saw.  These lines can be completely deleted in order to
  * re-solve from scratch.
  */
-adc1.ADC.AIN0.$suggestSolution = "ADC1_AIN0";
-adc1.ADC.AIN1.$suggestSolution = "ADC1_AIN1";
-adc1.ADC.AIN2.$suggestSolution = "ADC1_AIN2";
-adc1.ADC.AIN3.$suggestSolution = "ADC1_AIN3";
-adc1.ADC.AIN4.$suggestSolution = "ADC1_AIN4";
-adc1.ADC.AIN5.$suggestSolution = "ADC1_AIN5";
+adc1.ADC.AIN0.$suggestSolution              = "ADC1_AIN0";
+adc1.ADC.AIN1.$suggestSolution              = "ADC1_AIN1";
+adc1.ADC.AIN2.$suggestSolution              = "ADC1_AIN2";
+adc1.ADC.AIN3.$suggestSolution              = "ADC1_AIN3";
+adc1.ADC.AIN4.$suggestSolution              = "ADC1_AIN4";
+adc1.ADC.AIN5.$suggestSolution              = "ADC1_AIN5";
+mcspi1.SPI.$suggestSolution                 = "SPI0";
+mcspi1.SPI.CLK.$suggestSolution             = "SPI0_CLK";
+mcspi1.SPI.D0.$suggestSolution              = "SPI0_D0";
+mcspi1.SPI.D1.$suggestSolution              = "SPI0_D1";
+mcspi1.mcspiChannel[0].CSn.$suggestSolution = "SPI0_CS0";

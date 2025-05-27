@@ -71,11 +71,13 @@ void Drivers_open(void)
     }
 
     Drivers_adcOpen();
+    Drivers_mcspiOpen();
     Drivers_uartOpen();
 }
 
 void Drivers_close(void)
 {
+    Drivers_mcspiClose();
     Drivers_uartClose();
     Drivers_edmaClose();
 }
@@ -389,6 +391,102 @@ void Drivers_edmaClose(void)
         }
     }
 
+    return;
+}
+
+/*
+ * MCSPI
+ */
+/* MCSPI Driver handles */
+MCSPI_Handle gMcspiHandle[CONFIG_MCSPI_NUM_INSTANCES];
+/* MCSPI Driver Open Parameters */
+MCSPI_OpenParams gMcspiOpenParams[CONFIG_MCSPI_NUM_INSTANCES] =
+{
+    {
+        .transferMode           = MCSPI_TRANSFER_MODE_BLOCKING,
+        .transferTimeout        = SystemP_WAIT_FOREVER,
+        .transferCallbackFxn    = NULL,
+        .msMode                 = MCSPI_MS_MODE_CONTROLLER,
+        .mcspiDmaIndex = -1,
+    },
+};
+/* MCSPI Driver Channel Configurations */
+MCSPI_ChConfig gSpi0ChCfg[SPI0_NUM_CH] =
+{
+    {
+        .chNum              = MCSPI_CHANNEL_0,
+        .frameFormat        = MCSPI_FF_POL0_PHA0,
+        .bitRate            = 1000000,
+        .csPolarity         = MCSPI_CS_POL_LOW,
+        .trMode             = MCSPI_TR_MODE_TX_RX,
+        .inputSelect        = MCSPI_IS_D1,
+        .dpe0               = MCSPI_DPE_ENABLE,
+        .dpe1               = MCSPI_DPE_DISABLE,
+        .slvCsSelect        = MCSPI_SLV_CS_SELECT_0,
+        .startBitEnable     = FALSE,
+        .startBitPolarity   = MCSPI_SB_POL_LOW,
+        .csIdleTime         = MCSPI_TCS0_0_CLK,
+        .turboEnable        = FALSE,
+        .defaultTxData      = 0x0U,
+        .txFifoTrigLvl      = 16U,
+        .rxFifoTrigLvl      = 16U,
+    },
+};
+
+MCSPI_ChConfig *gConfigMcspiChCfg[1] =
+{
+    gSpi0ChCfg,
+};
+
+
+
+MCSPI_DmaChConfig gMcspiDmaChConfig[1] =
+{
+    NULL,
+};
+
+void Drivers_mcspiOpen(void)
+{
+    uint32_t instCnt;
+    int32_t  status = SystemP_SUCCESS;
+
+    for(instCnt = 0U; instCnt < CONFIG_MCSPI_NUM_INSTANCES; instCnt++)
+    {
+        gMcspiHandle[instCnt] = NULL;   /* Init to NULL so that we can exit gracefully */
+    }
+
+    /* Open all instances */
+    for(instCnt = 0U; instCnt < CONFIG_MCSPI_NUM_INSTANCES; instCnt++)
+    {
+        gMcspiHandle[instCnt] = MCSPI_open(instCnt, &gMcspiOpenParams[instCnt]);
+        if(NULL == gMcspiHandle[instCnt])
+        {
+            DebugP_logError("MCSPI open failed for instance %d !!!\r\n", instCnt);
+            status = SystemP_FAILURE;
+            break;
+        }
+    }
+
+    if(SystemP_FAILURE == status)
+    {
+        Drivers_mcspiClose();   /* Exit gracefully */
+    }
+
+    return;
+}
+
+void Drivers_mcspiClose(void)
+{
+    uint32_t instCnt;
+    /* Close all instances that are open */
+    for(instCnt = 0U; instCnt < CONFIG_MCSPI_NUM_INSTANCES; instCnt++)
+    {
+        if(gMcspiHandle[instCnt] != NULL)
+        {
+            MCSPI_close(gMcspiHandle[instCnt]);
+            gMcspiHandle[instCnt] = NULL;
+        }
+    }
     return;
 }
 

@@ -122,6 +122,12 @@ void GPIO_init()
     baseAddr = (uint32_t) AddrTranslateP_getLocalAddr(GPIO46_BASE_ADDR);
 
     GPIO_setDirMode(baseAddr, GPIO46_PIN, GPIO46_DIR);
+    /* Instance 4 */
+    /* Get address after translation translate */
+    baseAddr = (uint32_t) AddrTranslateP_getLocalAddr(SPI0_CS_BASE_ADDR);
+    GPIO_pinWriteHigh(baseAddr, SPI0_CS_PIN);
+
+    GPIO_setDirMode(baseAddr, SPI0_CS_PIN, SPI0_CS_DIR);
 }
 
 

@@ -57,6 +57,11 @@ static Pinmux_PerCfg_t gPinMuxMainDomainCfg[] = {
         PIN_EPWM1_B,
         ( PIN_MODE(7) | PIN_PULL_DISABLE | PIN_SLEW_RATE_LOW | PIN_GPIO_R5SS0_0 )
     },
+                /* GPIO11 -> SPI0_CS0 (C11) */
+    {
+        PIN_SPI0_CS0,
+        ( PIN_MODE(7) | PIN_PULL_DISABLE | PIN_SLEW_RATE_LOW | PIN_GPIO_R5SS0_0 )
+    },
 
             /* SPI0 pin config */
     /* SPI0_CLK -> SPI0_CLK (A11) */
@@ -77,13 +82,7 @@ static Pinmux_PerCfg_t gPinMuxMainDomainCfg[] = {
         ( PIN_MODE(0) | PIN_PULL_DISABLE | PIN_SLEW_RATE_LOW )
     },
 
-            /* SPI0_CS0 pin config */
-    /* SPI0_CS0 -> SPI0_CS0 (C11) */
-    {
-        PIN_SPI0_CS0,
-        ( PIN_MODE(0) | PIN_PULL_DISABLE )
-    },
-
+        
             /* UART0 pin config */
     /* UART0_RXD -> UART0_RXD (A7) */
     {

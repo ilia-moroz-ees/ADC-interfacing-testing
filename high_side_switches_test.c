@@ -30,12 +30,12 @@ static bool check_test_values(float ch0, float ch1, bool gpio44_value,
                               bool gpio44_expected_value,
                               bool gpio46_expected_value);
 
-static const float VREF = 3.3f;           // Reference ADC Voltage
+static const float VREF = 5.0f;           // Reference ADC Voltage
 static const float ADC_RESOLUTION = 4095; // 12 bit resolution
 static const float CURRENT_SCALE_CH0 =
     0.108f; // Voltage to Current Conversion factor CH0
 static const float CURRENT_SCALE_CH1 =
-    0.383f; // Voltage to Current Conversion factor CH0
+    0.383f; // Voltage to Current Conversion factor CH1
 static const float DISCREPANCY = 0.1;
 
 MCSPI_Handle gSpiHandle = NULL;
@@ -46,6 +46,9 @@ void high_side_switches_test(void *args) {
   Board_driversOpen();
 
   gSpiHandle = gMcspiHandle[SPI0];
+
+  GPIO_setDirMode(SPI0_CS_BASE_ADDR, SPI0_CS_PIN, SPI0_CS_DIR);
+  DebugP_log("SPI_CS0 configured as output\r\n");
 
   GPIO_setDirMode(GPIO43_BASE_ADDR, GPIO43_PIN, GPIO43_DIR);
   DebugP_log("GPIO43 configured as output\r\n");
@@ -59,11 +62,12 @@ void high_side_switches_test(void *args) {
   GPIO_setDirMode(GPIO46_BASE_ADDR, GPIO46_PIN, GPIO46_DIR);
   DebugP_log("GPIO46 configured as input\r\n");
 
-  // while (true) {
-  //   DebugP_log("ADC Result IMON value : %f\r\n", adc_to_voltage(readADC(0)));
-  //   DebugP_log("ADC Result VFB value : %f\r\n", adc_to_voltage(readADC(1)));
-  //   ClockP_sleep(1);
+  // while(true)
+  // {
+  //   DebugP_log("CH0: %d\r\n", readADC(0));
+  //   DebugP_log("CH1: %d\r\n", readADC(1));
   // }
+  
 
   test_high_side_switches();
 
@@ -84,7 +88,7 @@ void test_high_side_switches() {
 
   read_values(&ch0, &ch1, &gpio44_value, &gpio46_value);
 
-  DebugP_log("CH0: %fV, CH1: %fA, GPIO44: %d, GPIO46: %d\r\n", ch0, ch1,
+  DebugP_log("CH0: %fA, CH1: %fA, GPIO44: %d, GPIO46: %d\r\n", ch0, ch1,
              gpio44_value, gpio46_value);
   DebugP_log("Step 1: %d\r\n", check_test_values(ch0, ch1, gpio44_value,
                                                  gpio46_value, 0, 0, 1, 1));
@@ -95,7 +99,7 @@ void test_high_side_switches() {
 
   read_values(&ch0, &ch1, &gpio44_value, &gpio46_value);
 
-  DebugP_log("CH0: %fV, CH1: %fA, GPIO44: %d, GPIO46: %d\r\n", ch0, ch1,
+  DebugP_log("CH0: %fA, CH1: %fA, GPIO44: %d, GPIO46: %d\r\n", ch0, ch1,
              gpio44_value, gpio46_value);
   DebugP_log("Step 2: %d\r\n", check_test_values(ch0, ch1, gpio44_value,
                                                  gpio46_value, 0, 1, 1, 1));
@@ -107,7 +111,7 @@ void test_high_side_switches() {
 
   read_values(&ch0, &ch1, &gpio44_value, &gpio46_value);
 
-  DebugP_log("CH0: %fV, CH1: %fA, GPIO44: %d, GPIO46: %d\r\n", ch0, ch1,
+  DebugP_log("CH0: %fA, CH1: %fA, GPIO44: %d, GPIO46: %d\r\n", ch0, ch1,
              gpio44_value, gpio46_value);
   DebugP_log("Step 3: %d\r\n", check_test_values(ch0, ch1, gpio44_value,
                                                  gpio46_value, 1, 1, 1, 1));
@@ -121,7 +125,7 @@ void test_high_side_switches() {
 
     read_values(&ch0, &ch1, &gpio44_value, &gpio46_value);
 
-    DebugP_log("CH0: %fV, CH1: %fA, GPIO44: %d, GPIO46: %d\r\n", ch0, ch1,
+    DebugP_log("CH0: %fA, CH1: %fA, GPIO44: %d, GPIO46: %d\r\n", ch0, ch1,
                 gpio44_value, gpio46_value);
     DebugP_log("Step 4.%d: %d\r\n", i, check_test_values(ch0, ch1, gpio44_value,
                                                     gpio46_value, 1, 1, 1, 1)); // Read the corresponding values from ADC
@@ -134,7 +138,7 @@ void test_high_side_switches() {
 
   read_values(&ch0, &ch1, &gpio44_value, &gpio46_value);
 
-  DebugP_log("CH0: %fV, CH1: %fA, GPIO44: %d, GPIO46: %d\r\n", ch0, ch1,
+  DebugP_log("CH0: %fA, CH1: %fA, GPIO44: %d, GPIO46: %d\r\n", ch0, ch1,
              gpio44_value, gpio46_value);
   DebugP_log("Step 5: %d\r\n", check_test_values(ch0, ch1 * CURRENT_SCALE_CH1, gpio44_value,
                                                  gpio46_value, 6.5, 3.3, 0, 1)); //3.3V from ch1
@@ -156,7 +160,7 @@ void test_high_side_switches() {
 
   read_values(&ch0, &ch1, &gpio44_value, &gpio46_value);
 
-  DebugP_log("CH0: %fV, CH1: %fA, GPIO44: %d, GPIO46: %d\r\n", ch0, ch1,
+  DebugP_log("CH0: %fA, CH1: %fA, GPIO44: %d, GPIO46: %d\r\n", ch0, ch1,
              gpio44_value, gpio46_value);
   DebugP_log("Step 5: %d\r\n", check_test_values(ch0 * CURRENT_SCALE_CH0, ch1, gpio44_value,
                                                  gpio46_value, 3.3, 1, 1, 0)); //3.3V from ch0
@@ -168,7 +172,7 @@ void test_high_side_switches() {
 
   read_values(&ch0, &ch1, &gpio44_value, &gpio46_value);
 
-  DebugP_log("CH0: %fV, CH1: %fA, GPIO44: %d, GPIO46: %d\r\n", ch0, ch1,
+  DebugP_log("CH0: %fA, CH1: %fA, GPIO44: %d, GPIO46: %d\r\n", ch0, ch1,
              gpio44_value, gpio46_value);
   DebugP_log("Step 8: %d\r\n", check_test_values(ch0, ch1, gpio44_value,
                                                  gpio46_value, 1, 1, 1, 1)); 
@@ -190,11 +194,11 @@ float adc_to_voltage(uint16_t raw_adc) {
 }
 
 float adc_to_current_ch0(uint16_t raw_adc) {
-  return adc_to_voltage(raw_adc) / CURRENT_SCALE_CH0;
+  return adc_to_voltage((float)raw_adc) / CURRENT_SCALE_CH0;
 }
 
 float adc_to_current_ch1(uint16_t raw_adc) {
-  return adc_to_voltage(raw_adc) / CURRENT_SCALE_CH1;
+  return adc_to_voltage((float)raw_adc) / CURRENT_SCALE_CH1;
 }
 
 void read_values(float *ch0, float *ch1, bool *gpio44_value,
@@ -248,14 +252,14 @@ uint16_t SPI_ReadWrite(uint16_t data) {
   spiTransaction.rxBuf = (void *)&rxData;
   spiTransaction.args = NULL;
 
-  // GPIO_pinWriteLow(csBaseAddr, CS_GPIO_PIN);
+  GPIO_pinWriteLow(SPI0_CS_BASE_ADDR, SPI0_CS_PIN);
 
   if (MCSPI_transfer(gSpiHandle, &spiTransaction) != SystemP_SUCCESS) {
     DebugP_log("SPI transfer failed!\r\n");
     return 0xFFFF; // Error value
   }
 
-  // GPIO_pinWriteHigh(csBaseAddr, CS_GPIO_PIN);
+  GPIO_pinWriteHigh(SPI0_CS_BASE_ADDR, SPI0_CS_PIN);
 
   return rxData & 0x0FFF; // Getting the value from the package
 }

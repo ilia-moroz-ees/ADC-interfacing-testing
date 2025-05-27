@@ -149,9 +149,9 @@ void test_high_side_switches() {
   ClockP_usleep(SLEEP_TIME);
   read_values(&ch0, &ch1, &gpio44_value, &gpio46_value);
 
-  DebugP_log("CH0: %fA, CH1: %fA, GPIO44: %d, GPIO46: %d\r\n", ch0, ch1,
+  DebugP_log("CH0: %fA, CH1: %fA, GPIO44: %d, GPIO46: %d\r\n", ch0, ch1 * CURRENT_SCALE_CH1,
              gpio44_value, gpio46_value);
-  DebugP_log("Step 5: %d\r\n", check_test_values(ch0, ch1 * CURRENT_SCALE_CH1, gpio44_value,
+  DebugP_log("Step 5: %d\r\n", check_test_values(ch0, ch1, gpio44_value,
                                                  gpio46_value, 6.5, 3.3, 0, 1)); //3.3V from ch1
 
   // Step 6

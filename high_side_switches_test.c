@@ -11,6 +11,7 @@
 #include <math.h>
 #include <stdio.h>
 
+#define SLEEP_TIME 1000 * 200
 
 #define ADS7953_CMD(channel)                                                   \
   (0x1000 | ((channel & 0x0F)                                                  \
@@ -30,8 +31,8 @@ static bool check_test_values(float ch0, float ch1, bool gpio44_value,
                               bool gpio44_expected_value,
                               bool gpio46_expected_value);
 
-static const float VREF = 5.0f;           // Reference ADC Voltage
-static const float ADC_RESOLUTION = 4095; // 12 bit resolution
+static const float VREF = 2.5f;           // Reference ADC Voltage
+static const float ADC_RESOLUTION = 4095.0f; // 12 bit resolution
 static const float CURRENT_SCALE_CH0 =
     0.108f; // Voltage to Current Conversion factor CH0
 static const float CURRENT_SCALE_CH1 =
@@ -62,10 +63,14 @@ void high_side_switches_test(void *args) {
   GPIO_setDirMode(GPIO46_BASE_ADDR, GPIO46_PIN, GPIO46_DIR);
   DebugP_log("GPIO46 configured as input\r\n");
 
+  // GPIO_pinWriteHigh(GPIO43_BASE_ADDR, GPIO43_PIN);
+
   // while(true)
   // {
   //   DebugP_log("CH0: %d\r\n", readADC(0));
-  //   DebugP_log("CH1: %d\r\n", readADC(1));
+  //   DebugP_log("CH1: %f\r\n", adc_to_voltage(readADC(1)));
+
+  //   DebugP_log("CH1: %f\r\n", adc_to_current_ch1(readADC(1)));
   // }
   
 
@@ -86,6 +91,7 @@ void test_high_side_switches() {
   GPIO_pinWriteLow(GPIO43_BASE_ADDR, GPIO43_PIN);
   GPIO_pinWriteLow(GPIO45_BASE_ADDR, GPIO45_PIN);
 
+  ClockP_usleep(SLEEP_TIME);
   read_values(&ch0, &ch1, &gpio44_value, &gpio46_value);
 
   DebugP_log("CH0: %fA, CH1: %fA, GPIO44: %d, GPIO46: %d\r\n", ch0, ch1,
@@ -96,6 +102,8 @@ void test_high_side_switches() {
   // Step 2
   DebugP_log("Starting test Step 2\r\n");
   GPIO_pinWriteHigh(GPIO43_BASE_ADDR, GPIO43_PIN);
+
+  ClockP_usleep(SLEEP_TIME);
 
   read_values(&ch0, &ch1, &gpio44_value, &gpio46_value);
 
@@ -109,6 +117,7 @@ void test_high_side_switches() {
   GPIO_pinWriteHigh(GPIO43_BASE_ADDR, GPIO43_PIN);
   GPIO_pinWriteHigh(GPIO45_BASE_ADDR, GPIO45_PIN);
 
+  ClockP_usleep(SLEEP_TIME);
   read_values(&ch0, &ch1, &gpio44_value, &gpio46_value);
 
   DebugP_log("CH0: %fA, CH1: %fA, GPIO44: %d, GPIO46: %d\r\n", ch0, ch1,
@@ -123,6 +132,7 @@ void test_high_side_switches() {
     GPIO_pinWriteHigh(GPIO43_BASE_ADDR, GPIO43_PIN);
     GPIO_pinWriteHigh(GPIO45_BASE_ADDR, GPIO45_PIN);
 
+    ClockP_usleep(SLEEP_TIME);
     read_values(&ch0, &ch1, &gpio44_value, &gpio46_value);
 
     DebugP_log("CH0: %fA, CH1: %fA, GPIO44: %d, GPIO46: %d\r\n", ch0, ch1,
@@ -136,6 +146,7 @@ void test_high_side_switches() {
   GPIO_pinWriteHigh(GPIO43_BASE_ADDR, GPIO43_PIN);
   GPIO_pinWriteHigh(GPIO45_BASE_ADDR, GPIO45_PIN);
 
+  ClockP_usleep(SLEEP_TIME);
   read_values(&ch0, &ch1, &gpio44_value, &gpio46_value);
 
   DebugP_log("CH0: %fA, CH1: %fA, GPIO44: %d, GPIO46: %d\r\n", ch0, ch1,
@@ -148,6 +159,7 @@ void test_high_side_switches() {
   GPIO_pinWriteHigh(GPIO43_BASE_ADDR, GPIO43_PIN);
   GPIO_pinWriteHigh(GPIO45_BASE_ADDR, GPIO45_PIN);
 
+  ClockP_usleep(SLEEP_TIME);
   read_values(&ch0, &ch1, &gpio44_value, &gpio46_value);
 
   DebugP_log("CH0: %fV, CH1: %fA, GPIO44: %d, GPIO46: %d\r\n", ch0, ch1,
@@ -158,6 +170,7 @@ void test_high_side_switches() {
   // Step 7
   DebugP_log("Starting test Step 7\r\n");
 
+  ClockP_usleep(SLEEP_TIME);
   read_values(&ch0, &ch1, &gpio44_value, &gpio46_value);
 
   DebugP_log("CH0: %fA, CH1: %fA, GPIO44: %d, GPIO46: %d\r\n", ch0, ch1,
@@ -170,6 +183,7 @@ void test_high_side_switches() {
   GPIO_pinWriteHigh(GPIO43_BASE_ADDR, GPIO43_PIN);
   GPIO_pinWriteHigh(GPIO45_BASE_ADDR, GPIO45_PIN);
 
+  ClockP_usleep(SLEEP_TIME);
   read_values(&ch0, &ch1, &gpio44_value, &gpio46_value);
 
   DebugP_log("CH0: %fA, CH1: %fA, GPIO44: %d, GPIO46: %d\r\n", ch0, ch1,
@@ -193,12 +207,12 @@ float adc_to_voltage(uint16_t raw_adc) {
   return ((float)raw_adc / ADC_RESOLUTION) * VREF;
 }
 
-float adc_to_current_ch0(uint16_t raw_adc) {
-  return adc_to_voltage((float)raw_adc) / CURRENT_SCALE_CH0;
+float adc_to_current_ch0(uint16_t voltage) {
+  return adc_to_voltage((float)voltage) / CURRENT_SCALE_CH0;
 }
 
-float adc_to_current_ch1(uint16_t raw_adc) {
-  return adc_to_voltage((float)raw_adc) / CURRENT_SCALE_CH1;
+float adc_to_current_ch1(uint16_t voltage) {
+  return adc_to_voltage((float)voltage) / CURRENT_SCALE_CH1;
 }
 
 void read_values(float *ch0, float *ch1, bool *gpio44_value,

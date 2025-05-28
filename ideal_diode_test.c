@@ -9,6 +9,8 @@
 #include <math.h>
 #include <stdio.h>
 
+#define SLEEP_TIME 1000 * 200 // 200ms in us
+
 static uint16_t readADC(uint8_t adc_number);
 static float adc_to_voltage(uint16_t raw_adc);
 static float adc_to_current(uint16_t raw_adc);
@@ -30,8 +32,6 @@ void ideal_diode_test(void *args) {
   Board_driversOpen();
 
   ADC_enableConverter(ADC1_BASE_ADDR);
-
-  DebugP_log("Hello World!\r\n");
 
   GPIO_setDirMode(GPIO43_BASE_ADDR, GPIO43_PIN, GPIO43_DIR);
   DebugP_log("GPIO43 configured as output\r\n");
@@ -88,7 +88,7 @@ uint16_t readADC(uint8_t adc_number) {
   return conversion_result;
 }
 
-void test_ideal_diodes() { //Such a terrible code OMG, gotta restructure it
+void test_ideal_diodes() {
   float ain0, ain1;
   bool gpio44_value;
 
@@ -97,6 +97,8 @@ void test_ideal_diodes() { //Such a terrible code OMG, gotta restructure it
   // Step 1
   DebugP_log("Starting test Step 1\r\n");
   GPIO_pinWriteLow(GPIO43_BASE_ADDR, GPIO43_PIN);
+
+  ClockP_usleep(SLEEP_TIME); // Wait 200ms to enable the board
 
   read_values(&ain0, &ain1, &gpio44_value);
 
@@ -108,7 +110,7 @@ void test_ideal_diodes() { //Such a terrible code OMG, gotta restructure it
   DebugP_log("Starting test Step 2\r\n");
   GPIO_pinWriteHigh(GPIO43_BASE_ADDR, GPIO43_PIN);
 
-  ClockP_usleep(1000 * 200); // Wait 200ms to enable the board
+  ClockP_usleep(SLEEP_TIME); // Wait 200ms to enable the board
 
   read_values(&ain0, &ain1, &gpio44_value);
 
